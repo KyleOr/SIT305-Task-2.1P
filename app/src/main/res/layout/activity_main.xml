@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!-- Spinner for selecting the unit category (Length, Weight, Temperature) -->
+    <Spinner
+        android:id="@+id/spinnerCategory"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="32dp"
+        android:minHeight="48dp"
+        android:importantForAccessibility="yes"
+        android:contentDescription="@string/unit_category_spinner" />
+
+    <!-- Spinner for selecting the source unit -->
+    <Spinner
+        android:id="@+id/spinnerSourceUnit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/spinnerCategory"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:minHeight="48dp"
+        android:importantForAccessibility="yes"
+        android:contentDescription="@string/source_unit_spinner" />
+
+    <!-- Spinner for selecting the destination unit -->
+    <Spinner
+        android:id="@+id/spinnerDestinationUnit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/spinnerSourceUnit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:minHeight="48dp"
+        android:importantForAccessibility="yes"
+        android:contentDescription="@string/destination_unit_spinner" />
+
+    <!-- EditText for entering the value to be converted -->
+    <EditText
+        android:id="@+id/editTextValue"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:hint="@string/enter_value"
+        android:inputType="numberDecimal"
+        android:padding="16dp"
+        android:importantForAccessibility="yes"
+        android:autofillHints="organization"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spinnerDestinationUnit" />
+
+    <!-- Button to trigger conversion -->
+    <Button
+        android:id="@+id/convertButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/convert"
+        app:layout_constraintTop_toBottomOf="@id/editTextValue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="32dp"
+        android:minHeight="48dp"
+        android:importantForAccessibility="yes"
+        android:contentDescription="@string/convert_units_button"
+        android:accessibilityLiveRegion="assertive" />
+
+    <!-- TextView for displaying the result -->
+    <TextView
+        android:id="@+id/resultTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/converted_value"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/convertButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="32dp"
+        android:importantForAccessibility="yes"
+        android:contentDescription="@string/result_text" />
+</androidx.constraintlayout.widget.ConstraintLayout>
